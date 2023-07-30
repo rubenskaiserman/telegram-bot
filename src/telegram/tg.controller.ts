@@ -14,9 +14,7 @@ import fetch from 'node-fetch';
 @ApiTags('Telegram')
 @Controller('telegram')
 export class TelegramController {
-  constructor(
-    private readonly telegramService: TelegramService,
-  ) {}
+  constructor(private readonly telegramService: TelegramService) {}
 
   @Post('chatbot')
   @ApiOperation({
@@ -24,19 +22,14 @@ export class TelegramController {
   })
   @HttpCode(200)
   async chat(@Body() data: any) {
-    console.log(data);
-    const response = await fetch(
-      'https://api.telegram.org/bot' + process.env.TG_TOKEN + '/sendMessage',
-      {
-        method: 'post',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          chat_id: data.message.chat.id,
-          text: data.message.text
-        })
-      }
-    ) 
+    console.log('DATA:  ', data);
+    console.log('data.message: ', data.message);
+    console.log('data.message.text: ', data.message.text);
+    console.log(data.message.text === '/about')
+    if (data.message.text === '/start') {
+      this.telegramService.start(data);
+    } else if (data.message.text === '/about') {
+      this.telegramService.about(data.message.chat.id);
+    }
   }
 }

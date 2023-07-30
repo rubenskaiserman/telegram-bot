@@ -1,0 +1,9 @@
+Olá! Sou o Rubens Kaiserman, um entusiasta da tecnologia e um desenvolvedor FullStack com ampla experiência na stack (TypeScript) NestJS, NextJS + React, AWS Dynamo + MySQL. Minha paixão recente tem sido a construção de sistemas SaaS, onde utilizo essa stack para desenvolver softwares web no modelo de microsserviços modularizados, garantindo uma comunicação eficiente entre os componentes.
+
+Além disso, sou especializado em Python e o utilizo para implementar Robotic Process Automation (RPA), reduzindo a necessidade de retrabalho ou processos excessivos e aumentando significativamente a eficiência dos projetos.
+
+Iniciei minha trajetória acadêmica com formação técnica em Informática pelo IFRJ, onde tive a honra de conquistar duas menções honrosas na Olimpíada Brasileira de Matemática, destacando minha habilidade analítica desde cedo.
+
+Como desenvolvedor FullStack, possuo expertise no desenvolvimento com React, criando interfaces ricas e interativas para aprimorar a experiência dos usuários. A integração harmoniosa entre diferentes tecnologias, como MySQL e NestJS, permite que eu construa sistemas robustos e escaláveis.
+
+Estou verdadeiramente empolgado para contribuir com projetos inovadores e agregar valor ao seu time. Se busca um desenvolvedor comprometido, versátil e atualizado, estou aqui para colaborar. Vamos conversar mais sobre como posso fazer parte do seu time de sucesso! Agradeço pela oportunidade!

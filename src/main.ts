@@ -3,6 +3,9 @@ import { AppModule } from "./app.module";
 import { urlencoded, json } from "express";
 import { Logger, ValidationPipe } from "@nestjs/common";
 import { swagger } from "./config/swagger.config";
+import { inject } from '@vercel/analytics';
+ 
+inject();
 
 async function bootstrap() {
   const logger = new Logger("Bootstrap");
