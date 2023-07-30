@@ -29,7 +29,11 @@ export class TelegramController {
     if (data.message.text === '/start') {
       this.telegramService.start(data);
     } else if (data.message.text === '/about') {
-      this.telegramService.about(data.message.chat.id);
+      if(data.message.chat) {
+        this.telegramService.about(data.message.chat.id);
+      } else {
+        console.log("ERROR")
+      }
     }
   }
 }

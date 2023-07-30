@@ -35,7 +35,11 @@ export class TelegramService {
 
   async start(data: any) {
     // welcome message + says you may ask for /help
-    return this.sendMessage(data.message.chat.id, 'Welcome to my chatbot! You may ask for /help or /about to read my bio.');
+    if(data.message.chat) {
+      return this.sendMessage(data.message.chat.id, 'Welcome to my chatbot! You may ask for /help or /about to read my bio.');
+    } else {
+      console.log('Error: no understand this')
+    }
   }
 
   async gpt_response(data: any) {
