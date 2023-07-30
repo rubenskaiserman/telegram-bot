@@ -27,7 +27,7 @@ export class TelegramController {
       this.telegramService.start(data);
     } else if (data.message.text === '/about') {
       if(data.message.chat) {
-        const response = this.telegramService.about(data.message.chat.id);
+        const response = await this.telegramService.about(data.message.chat.id);
         console.log(response)
       } else {
         console.log("ERROR")

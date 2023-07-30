@@ -15,12 +15,15 @@ export class TelegramService {
 
   private async sendMessage(chatId:string, message:string) {
     try {
-      for(let i = 0; i < 5; i++) {
-        await axios.post(`https://api.telegram.org/bot${process.env.TELEGRAM_TOKEN}/sendMessage`, {
-          chat_id: chatId,
-          text: message,
-        });
-      }
+      return await axios.post('https://api.telegram.org/bot' + process.env.TG_TOKEN + '/sendMessage', {
+        chat_id: chatId,
+        text: message,
+      },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      })
     } catch {
       console.log('Error sending message to Telegram');
       await this.sendMessage(chatId, message); // Shouldn't do it but doing temporarily
@@ -30,7 +33,7 @@ export class TelegramService {
   async start(data: any) {
     // welcome message + says you may ask for /help
     if(data.message.chat) {
-      return this.sendMessage(data.message.chat.id, 'Welcome to my chatbot! You may ask for /help or /about to read my bio.');
+      return await this.sendMessage(data.message.chat.id, 'Welcome to my chatbot! You may ask for /help or /about to read my bio.');
     } else {
       console.log('Error: no understand this')
     }
@@ -40,8 +43,8 @@ export class TelegramService {
     // answers user with GPT-3 response
   }
 
-  about(chat_id:string) {
-    this.sendMessage(chat_id, about);
+  async about(chat_id:string) {
+    await this.sendMessage(chat_id, about);
   }
 
   github() {
