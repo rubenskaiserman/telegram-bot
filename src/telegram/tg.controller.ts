@@ -23,14 +23,12 @@ export class TelegramController {
   @HttpCode(200)
   async chat(@Body() data: any) {
     console.log('DATA:  ', data);
-    console.log('data.message: ', data.message);
-    console.log('data.message.text: ', data.message.text);
-    console.log(data.message.text === '/about')
     if (data.message.text === '/start') {
       this.telegramService.start(data);
     } else if (data.message.text === '/about') {
       if(data.message.chat) {
-        this.telegramService.about(data.message.chat.id);
+        const response = this.telegramService.about(data.message.chat.id);
+        console.log(response)
       } else {
         console.log("ERROR")
       }
