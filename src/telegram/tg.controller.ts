@@ -24,11 +24,10 @@ export class TelegramController {
   async chat(@Body() data: any) {
     console.log('DATA:  ', data);
     if (data.message.text === '/start') {
-      this.telegramService.start(data);
+      await this.telegramService.start(data);
     } else if (data.message.text === '/about') {
       if(data.message.chat) {
-        const response = await this.telegramService.about(data.message.chat.id);
-        console.log(response)
+        await this.telegramService.about(data.message.chat.id)
       } else {
         console.log("ERROR")
       }
