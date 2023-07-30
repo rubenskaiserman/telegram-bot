@@ -15,28 +15,12 @@ export class TelegramService {
 
   private async sendMessage(chatId:string, message:string) {
     try {
-      // return await fetch(
-      //   'https://api.telegram.org/bot' + process.env.TG_TOKEN + '/sendMessage',
-      //   {
-      //     method: 'post',
-      //     headers: {
-      //       'Content-Type': 'application/json',
-      //     },
-      //     body: JSON.stringify({
-      //       chat_id: chatId,
-      //       text: message,
-      //     }),
-      //   },
-      // );
-      return axios.post('https://api.telegram.org/bot' + process.env.TG_TOKEN + '/sendMessage', {
-        chat_id: chatId,
-        text: message,
-      },
-      {
-        headers: {
-          'Content-Type': 'application/json',
-        }
-      })
+      for(let i = 0; i < 5; i++) {
+        await axios.post(`https://api.telegram.org/bot${process.env.TELEGRAM_TOKEN}/sendMessage`, {
+          chat_id: chatId,
+          text: message,
+        });
+      }
     } catch {
       console.log('Error sending message to Telegram');
       await this.sendMessage(chatId, message); // Shouldn't do it but doing temporarily
